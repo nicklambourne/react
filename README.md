@@ -1,5 +1,5 @@
 # React Tutorials
-## ReactJS.org - Basis Tutorial
+## ReactJS.org - Basis Tutorial ([link](https://reactjs.org/tutorial/tutorial.html))
 -  Tic Tac Toe Game implemented in pure React
 -  Additional features implemented:
     -  Display the location for each move in the format (col, row) in the move history list.

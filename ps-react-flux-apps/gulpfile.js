@@ -14,7 +14,7 @@ var config = {
     devBaseUrl: 'http://localhost',
     paths: {
         html: './src/*.html',
-        js: './src/**/*.js,',
+        js: './src/*/*.js,',
         css: [
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
@@ -35,7 +35,7 @@ gulp.task('connect', function() {
 });
 
 gulp.task('open', ['connect'], function() {
-    gulp.src('dist/index.html')
+    gulp.src('localhost')
         .pipe(open({url: config.devBaseUrl + ':' + config.port + '/'}));
 });
 

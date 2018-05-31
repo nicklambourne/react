@@ -19,6 +19,7 @@ var config = {
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
         ],
+        images: './src/images/*',
         dist: './dist',
         mainJs: './src/main.js'
     }
@@ -61,6 +62,15 @@ gulp.task('css', function() {
         .pipe(gulp.dest(config.paths.dist + '/css'))
 });
 
+gulp.task('images', function() {
+    gulp.src(config.paths.images)
+        .pipe(gulp.dest(config.paths.dist + '/images'))
+        .pipe(connect.reload());
+
+    gulp.src('./src/favicon.ico')
+        .pipe(gulp.dest(config.paths.dist));
+})
+
 gulp.task('lint', function () {
     return gulp.src(config.paths.js)
         .pipe(eslint({config: 'eslint.config.json'}))
@@ -69,7 +79,7 @@ gulp.task('lint', function () {
 
 gulp.task('watch', function () {
     gulp.watch(config.paths.html, ['html']);
-    gulp.watch(config.paths.js, ['js', 'lint']);
+    gulp.watch(config.paths.js, ['js']);
 });
 
-gulp.task('default', ['html', 'js', 'css', 'lint', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'css', 'images', 'lint', 'open', 'watch']);

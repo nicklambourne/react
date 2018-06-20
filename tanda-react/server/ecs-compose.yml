@@ -1,0 +1,22 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:alpine
+    environment: &db_env
+      POSTGRES_USER: tandarcl
+      POSTGRES_PASSWORD: tandarcl
+  web:
+    image: 364240627620.dkr.ecr.ap-southeast-2.amazonaws.com/tanda-social
+    command: yarn start
+    tty: true
+    ports:
+      - "80:3000"
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    environment:
+      <<: *db_env
+      APP_PORT: 3000
+      DATABASE_URL: postgres://tandarcl:tandarcl@postgres/tandarcl
+      TOKEN_SECRET: "${TOKEN_SECRET}"

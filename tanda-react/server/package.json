@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "bcrypt": "^2.0.1",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-route": "^3.2.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.37.10"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "tandarcl",
+  "scripts": {
+    "format": "prettier --write '**/**/*.{mjs,js}'",
+    "predev": "yarn",
+    "dev": "nodemon --experimental-modules src/index.mjs",
+    "start": "pm2-docker start src/index.mjs --name tanda-rcl-server --node-args=\"--experimental-modules\"",
+    "setup": "./scripts/setup.sh"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "faker": "^4.1.0",
+    "nodemon": "^1.17.5",
+    "pm2": "^2.10.4",
+    "prettier": "^1.13.5"
+  },
+  "private": true
+}

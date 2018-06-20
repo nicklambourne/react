@@ -1,0 +1,10 @@
+version: 1
+task_definition:
+  ecs_network_mode: bridge
+  services:
+    web:
+      cpu_shares: 1
+      memory: 500
+    postgres:
+      cpu_shares: 1
+      memory: 500

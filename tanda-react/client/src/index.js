@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
-import styles from './styles.module.css';
-import LoginField from './components/LoginField'
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/App';
+
 
 ReactDOM.render(
-  <div className={styles.app}>
-      <LoginField/>
-  </div>,
+  <BrowserRouter>
+      <App/>
+  </BrowserRouter>,
   document.getElementById('root')
 );
-
-registerServiceWorker();

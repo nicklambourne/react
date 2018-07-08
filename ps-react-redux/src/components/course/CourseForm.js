@@ -36,19 +36,19 @@ const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => 
         type="submit"
         disabled={loading}
         value={loading ? 'Saving' : 'Save'}
-        className={'btn' + loading ? 'btn-primary' : 'btn-success' }
+        className={'btn ' + (!loading ? 'btn-primary' : 'btn-success')}
         onClick={onSave}/>
     </form>
   );
 };
 
-CourseForm.PropTypes = {
+CourseForm.propTypes = {
   course: React.PropTypes.object.isRequired,
   allAuthors: React.PropTypes.array,
   onSave: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,
   loading: React.PropTypes.bool,
-  errors: React.PropTypes.object;
+  errors: React.PropTypes.object
 };
 
 export default CourseForm;
